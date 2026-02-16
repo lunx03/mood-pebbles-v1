@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, viewport-fit=cover">
+    <title>Moodpebbles - The Art of Feelings</title>
+    
+    <!-- iOS App Enhancements -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Moodpebbles">
+    <link rel="apple-touch-icon" href="https://fonts.gstatic.com/s/i/short-term/release/googlestandardsymbols/palette/default/48px.svg">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: "#5E503F",
+              muted: "#A9927D",
+              action: "#C5CCE7",
+              "background-light": "#FFFDFE",
+              "background-dark": "#121212",
+              "pebble-green": "#a3ad8b",
+              "pebble-blue": "#3d405b",
+              "pebble-clay": "#cc8166",
+              "pebble-sand": "#e9c46a",
+              "pebble-peach": "#e0bfa5",
+              "pebble-slate": "#6d6875",
+              "pebble-desert": "#E9C46A",
+              "pebble-moss": "#A3B18A",
+              "pebble-navy": "#3D405B",
+              "pebble-terracotta": "#D08770",
+              "pebble-dust": "#716F7D",
+            },
+            fontFamily: {
+              display: ["Bodoni Moda", "serif"],
+              serif: ["Playfair Display", "serif"],
+              lora: ["Lora", "serif"],
+              sans: ["Open Sans", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "1.5rem",
+              "blob": "40% 60% 70% 30% / 40% 50% 60% 50%",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        -webkit-tap-highlight-color: transparent;
+        font-family: "Open Sans", sans-serif;
+        background-color: #FFFDFE;
+        /* Padding for iOS notch areas */
+        padding-top: env(safe-area-inset-top);
+        padding-bottom: env(safe-area-inset-bottom);
+      }
+      .organic-shape {
+        border-radius: 60% 40% 70% 30% / 40% 50% 60% 50%;
+      }
+      .organic-shape-1 { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; } 
+      .organic-shape-2 { border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; } 
+      .organic-shape-3 { border-radius: 30% 70% 70% 30% / 50% 40% 60% 50%; } 
+      .organic-shape-4 { border-radius: 60% 40% 50% 50% / 40% 60% 40% 60%; } 
+      .organic-shape-5 { border-radius: 40% 60% 70% 30% / 40% 40% 60% 60%; } 
+      .organic-shape-6 { border-radius: 50% 50% 30% 30% / 80% 80% 20% 20%; } 
+      
+      .floating {
+        animation: float 6s ease-in-out infinite;
+      }
+      @keyframes float {
+        0% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-10px) rotate(2deg); }
+        100% { transform: translateY(0px) rotate(0deg); }
+      }
+      
+      .fade-in {
+        animation: fadeIn 1s ease-out forwards;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .animate-zoom-out {
+        animation: zoomOutEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+      @keyframes zoomOutEntrance {
+        from {
+          transform: scale(1.3);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .glass {
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+      }
+      
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.41.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4"
+  }
+}
+</script>
+</head>
+<body class="bg-background-light dark:bg-background-dark transition-colors duration-500 overflow-x-hidden">
+    <div id="root"></div>
+</body>
+</html>
