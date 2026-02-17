@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { AppScreen } from '../types';
 
@@ -8,33 +7,45 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ currentScreen, setScreen }) => {
-  const isActive = (screens: AppScreen[]) => screens.includes(currentScreen);
-
+  const isActive = (screen: AppScreen) => currentScreen === screen;
+  
   return (
-    <nav className="fixed bottom-8 left-1/2 -translate-x-1/2 w-[85%] max-w-sm z-50">
-      <div className="glass bg-white/30 dark:bg-zinc-900/30 border border-white/20 dark:border-white/5 shadow-2xl rounded-full px-6 py-1.5 flex justify-between items-center transition-all duration-500">
-        <button 
-          onClick={() => setScreen(AppScreen.TODAY_SUMMARY)}
-          className={`flex flex-col items-center group transition-all ${isActive([AppScreen.TODAY_SUMMARY]) ? 'scale-110 text-slate-800 dark:text-white' : 'text-slate-400 dark:text-slate-600'}`}
+    <nav className="fixed bottom-0 left-0 right-0 max-w-md mx-auto border-t border-slate-200 dark:border-slate-700 bg-background-light dark:bg-background-dark">
+      <div className="flex justify-around items-center py-3 px-2">
+        <button
+          onClick={() => setScreen(AppScreen.WELCOME)}
+          className={`flex flex-col items-center gap-1 px-3 py-2 rounded-lg transition-colors ${
+            isActive(AppScreen.WELCOME)
+              ? 'text-primary'
+              : 'text-muted hover:text-primary'
+          }`}
         >
-          <span className="material-symbols-outlined text-[28px]">palette</span>
-          <div className={`w-1 h-1 rounded-full mt-0.5 ${isActive([AppScreen.TODAY_SUMMARY]) ? 'bg-current' : 'bg-transparent'}`} />
+          <span className="material-symbols-outlined text-xl">home</span>
+          <span className="text-xs">Home</span>
         </button>
-
-        <button 
+        
+        <button
           onClick={() => setScreen(AppScreen.CALENDAR)}
-          className={`flex flex-col items-center group transition-all ${isActive([AppScreen.CALENDAR, AppScreen.HISTORY_LIST, AppScreen.YEARLY]) ? 'scale-110 text-slate-800 dark:text-white' : 'text-slate-400 dark:text-slate-600'}`}
+          className={`flex flex-col items-center gap-1 px-3 py-2 rounded-lg transition-colors ${
+            isActive(AppScreen.CALENDAR) || isActive(AppScreen.YEARLY)
+              ? 'text-primary'
+              : 'text-muted hover:text-primary'
+          }`}
         >
-          <span className="material-symbols-outlined text-[28px]">calendar_today</span>
-          <div className={`w-1 h-1 rounded-full mt-0.5 ${isActive([AppScreen.CALENDAR, AppScreen.HISTORY_LIST, AppScreen.YEARLY]) ? 'bg-current' : 'bg-transparent'}`} />
+          <span className="material-symbols-outlined text-xl">calendar_month</span>
+          <span className="text-xs">History</span>
         </button>
-
-        <button 
+        
+        <button
           onClick={() => setScreen(AppScreen.COLLECTION)}
-          className={`flex flex-col items-center group transition-all ${isActive([AppScreen.COLLECTION, AppScreen.CREATE_PEBBLE]) ? 'scale-110 text-slate-800 dark:text-white' : 'text-slate-400 dark:text-slate-600'}`}
+          className={`flex flex-col items-center gap-1 px-3 py-2 rounded-lg transition-colors ${
+            isActive(AppScreen.COLLECTION)
+              ? 'text-primary'
+              : 'text-muted hover:text-primary'
+          }`}
         >
-          <span className="material-symbols-outlined text-[28px]">person</span>
-          <div className={`w-1 h-1 rounded-full mt-0.5 ${isActive([AppScreen.COLLECTION, AppScreen.CREATE_PEBBLE]) ? 'bg-current' : 'bg-transparent'}`} />
+          <span className="material-symbols-outlined text-xl">palette</span>
+          <span className="text-xs">Pebbles</span>
         </button>
       </div>
     </nav>
